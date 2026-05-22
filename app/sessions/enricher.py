@@ -425,6 +425,12 @@ Respond in strict JSON:
   "tags": ["...", "..."],
   "summary": "..."(Summary should be one long string object, do not split it into multiple objects)
 }}
+
+IMPORTANT:
+Return ONLY valid JSON.
+Do not use markdown fences.
+Do not explain your answer.
+Do not include extra text before or after JSON.
 """
 
     response = model.generate_content(prompt)
