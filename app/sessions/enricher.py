@@ -433,7 +433,7 @@ Do not explain your answer.
 Do not include extra text before or after JSON.
 """
 
-    response = model.generate_content(prompt)
+    response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
     print("RAW LLM RESPONSE ↓↓↓")
     print(response.text)
     print("↑↑↑ RAW LLM RESPONSE")
@@ -591,4 +591,4 @@ def _safe_parse_json(text: str) -> dict:
     if not match:
         raise ValueError("LLM did not return JSON")
 
-    return json.loads(match.group())
+    return json.loads(re.search(r'\{[\s\S]*\}', re.sub(r'```json|```', '', text)).group())
