@@ -58,7 +58,7 @@ def ingest_audio_file(audio_path: str) -> dict:
             speaker_segments
         )
         print("3️⃣ Aligned segments:", aligned_segments)
-        ingestion_timestamp = datetime.now(timezone.utc).isoformat()
+        ingestion_timestamp = datetime.now(timezone.utc).timestamp()
 
 
 

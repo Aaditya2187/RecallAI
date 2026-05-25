@@ -139,8 +139,8 @@ def _range(start, end):
     if end:
         return {
             "timestamp": {
-                "$gte": start.isoformat(),
-                "$lt": end.isoformat()
+                "$gte": start.timestamp(),
+                "$lt": end.timestamp()
             }
         }
     else:
